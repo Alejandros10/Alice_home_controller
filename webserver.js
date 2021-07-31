@@ -7,7 +7,7 @@ var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 
 //Interior vbls
 var LDerNoche = new Gpio(2, 'out'); //use GPIO pin 26 as output
-var GPIO4value = 0; // Turn off the LDerNoche by default
+var GPIO2value = 0; // Turn off the LDerNoche by default
 
 var LED26 = new Gpio(26, 'out'); //use GPIO pin 26 as output
 var LED20 = new Gpio(20, 'out'); //use GPIO pin 20 as output
@@ -38,14 +38,14 @@ const WebPort = 80;
 
 // Start http webserver
 http.listen(WebPort, function() { // This gets call when the web server is first started.
-    LDerNoche.writeSync(GPIO4value); //turn LDerNoche on or off
+    LDerNoche.writeSync(GPIO2value); //turn LDerNoche on or off
 
     LED26.writeSync(GPIO26value); //turn LED on or off
     LED20.writeSync(GPIO20value); //turn LED on or off
     LED21.writeSync(GPIO21value); //turn LED on or off
     LED16.writeSync(GPIO16value); //turn LED on or off
     console.log('Server running on Port ' + WebPort);
-    console.log('GPIO4 = ' + GPIO4value);
+    console.log('GPIO2 = ' + GPIO2value);
     console.log('GPIO26 = ' + GPIO26value);
     console.log('GPIO20 = ' + GPIO20value);
     console.log('GPIO21 = ' + GPIO21value);
@@ -135,20 +135,20 @@ process.on('SIGINT', function() { //on ctrl+c
 
 io.sockets.on('connection', function(socket) { // WebSocket Connection
     console.log('A new client has connectioned. Send LED status');
-    socket.emit('GPIO4', GPIO4value);
+    socket.emit('GPIO2', GPIO2value);
     socket.emit('GPIO26', GPIO26value);
     socket.emit('GPIO20', GPIO20value);
     socket.emit('GPIO21', GPIO21value);
     socket.emit('GPIO16', GPIO16value);
 
     // this gets called whenever client presses GPIO26 toggle light button
-    socket.on('GPIO4T', function(data) {
-        if (GPIO4value) GPIO4value = 0;
-        else GPIO4value = 1;
-        console.log('new GPIO4 value=' + GPIO4value);
-        LED26.writeSync(GPIO4value); //turn LED on or off
-        console.log('Send new GPIO4 state to ALL clients');
-        io.emit('GPIO4', GPIO4value); //send button status to ALL clients 
+    socket.on('GPIO2T', function(data) {
+        if (GPIO2value) GPIO2value = 0;
+        else GPIO2value = 1;
+        console.log('new GPIO2 value=' + GPIO2value);
+        LED26.writeSync(GPIO2value); //turn LED on or off
+        console.log('Send new GPIO2 state to ALL clients');
+        io.emit('GPIO2', GPIO2value); //send button status to ALL clients 
     });
 
     // this gets called whenever client presses GPIO26 toggle light button
@@ -183,8 +183,8 @@ io.sockets.on('connection', function(socket) { // WebSocket Connection
 
     // this gets called whenever client presses GPIO16 toggle light button
     socket.on('GPIO16T', function(data) {
-        if (GPIO16value) GPIO16value = 0;
-        else GPIO16value = 1;
+        if (GPIO16value) GPIO16value = 1;
+        else GPIO16value = 0;
         console.log('new GPIO16 value=' + GPIO16value);
         LED16.writeSync(GPIO16value); //turn LED on or off
         console.log('Send new GPIO16 state to ALL clients');
@@ -193,12 +193,12 @@ io.sockets.on('connection', function(socket) { // WebSocket Connection
 
 
     // this gets called whenever client presses GPIO26 momentary light button
-    socket.on('GPIO4', function(data) {
-        GPIO4value = data;
-        if (GPIO4value != LDerNoche.readSync()) { //only change LED if status has changed
-            LDerNoche.writeSync(GPIO4value); //turn LED on or off
-            console.log('Send new GPIO4 state to ALL clients');
-            io.emit('GPIO4', GPIO4value); //send button status to ALL clients 
+    socket.on('GPIO2', function(data) {
+        GPIO2value = data;
+        if (GPIO2value != LDerNoche.readSync()) { //only change LED if status has changed
+            LDerNoche.writeSync(GPIO2value); //turn LED on or off
+            console.log('Send new GPIO2 state to ALL clients');
+            io.emit('GPIO2', GPIO2value); //send button status to ALL clients 
         };
     });
 
