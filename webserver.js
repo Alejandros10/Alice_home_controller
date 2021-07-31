@@ -55,7 +55,7 @@ function handler(req, res) {
     var extname = path.extname(filename);
     if (filename == './') {
         console.log('retrieving default index.html file');
-        filename = '/public/index.html';
+        filename = 'public/index.html';
     }
 
     // Initial content type
