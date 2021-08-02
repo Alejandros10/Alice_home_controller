@@ -40,15 +40,15 @@ function ReportTouchStart(e) {
     }
 
     if (e.target.id === "GPIO2M") {
-        socket.emit("GPIO2", 0);
-        document.getElementById('GPIO2').checked = 0;
+        socket.emit("GPIO2", 1);
+        document.getElementById('GPIO2').checked = 1;
     }
 }
 
 function ReportTouchEnd(e) {
     if (e.target.id === "GPIO2M") {
-        socket.emit("GPIO2", 1);
-        document.getElementById('GPIO2').checked = 1;
+        socket.emit("GPIO2", 0);
+        document.getElementById('GPIO2').checked = 0;
     }
 }
 
