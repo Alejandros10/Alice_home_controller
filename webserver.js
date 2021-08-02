@@ -105,8 +105,8 @@ io.sockets.on('connection', function(socket) { // WebSocket Connection
 
     // this gets called whenever client presses GPIO26 toggle light button
     socket.on('GPIO2T', function(data) {
-        if (GPIO2value) GPIO2value = 0;
-        else GPIO2value = 1;
+        if (GPIO2value) GPIO2value = 1;
+        else GPIO2value = 0;
         console.log('new GPIO2 value=' + GPIO2value);
         LDerNoche.writeSync(GPIO2value); //turn LED on or off
         console.log('Send new GPIO2 state to ALL clients');
