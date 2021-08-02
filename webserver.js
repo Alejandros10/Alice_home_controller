@@ -100,6 +100,7 @@ process.on('SIGINT', function() { //on ctrl+c
 
 io.sockets.on('connection', function(socket) { // WebSocket Connection
     console.log('A new client has connectioned. Send LED status');
+    console.log(GPIO2value);
     socket.emit('GPIO2', GPIO2value);
 
     // this gets called whenever client presses GPIO26 toggle light button
