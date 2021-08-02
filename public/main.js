@@ -16,13 +16,14 @@ window.addEventListener("load", function() { //when page loads
 
 });
 
+
 //Update gpio feedback when server changes LED state
-socket.on('GPIO4', function(data) {
-    //  console.log('GPIO4 function called');
+socket.on('GPIO2', function(data) {
+    //  console.log('GPIO2 function called');
     //  console.log(data);
     var myJSON = JSON.stringify(data);
     //  console.log(myJSON);
-    document.getElementById('GPIO4').checked = data;
+    document.getElementById('GPIO2').checked = data;
     //  console.log('GPIO26: '+data.toString());
 });
 
@@ -58,13 +59,13 @@ function ReportMouseDown(e) {
     if (x !== null) {
         // Now we know that x is defined, we are good to go.
         if (x === "GPIO2") {
-            //     console.log("GPIO26 toggle");
+            //     console.log("GPIO2 toggle");
             socket.emit("GPIO2T"); // send GPIO button toggle to node.js server
         }
     }
 
     if (e.target.id === "GPIO2M") {
-        //   console.log("GPIO26 pressed");
+        //   console.log("GPIO2 pressed");
         socket.emit("GPIO2", 1);
         document.getElementById('GPIO2').checked = 1;
     }
