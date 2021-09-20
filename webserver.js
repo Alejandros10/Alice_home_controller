@@ -28,6 +28,7 @@ http.listen(WebPort, function() { // This gets call when the web server is first
     console.log('GPIO2 = ' + GPIO2value);
     console.log('Server running on Port ' + WebPort);
     console.log('GPIO2 = ' + GPIO2value);
+    console.log("Alice")
 });
 
 
