@@ -12,8 +12,8 @@ var LED16 = new Gpio(16, 'out'); //use GPIO pin 16 as output
 
 var GPIO26value = 0;  // Turn on the LED by default
 var GPIO20value = 0;  // Turn on the LED by default
-var GPIO21value = 1;  // Turn on the LED by default
-var GPIO16value = 1;  // Turn on the LED by default
+var GPIO21value = 0;  // Turn on the LED by default
+var GPIO16value = 0;  // Turn on the LED by default
 
 /****** CONSTANTS******************************************************/
 
