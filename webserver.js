@@ -203,7 +203,7 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 		if (GPIO12value) GPIO12value = 0;
 		else GPIO12value = 1;
 		console.log('new GPIO12 value='+GPIO12value);
-		LED16.writeSync(GPIO12value); //turn LED on or off
+		LED12.writeSync(GPIO12value); //turn LED on or off
 		console.log('Send new GPIO12 state to ALL clients');
 		io.emit('GPIO12', GPIO12value); //send button status to ALL clients 	
 		});
