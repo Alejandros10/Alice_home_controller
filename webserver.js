@@ -49,7 +49,7 @@ var GPIO20value = 0;// Turn on the LED by default
 var GPIO21value = 0;// Turn on the LED by default
 var GPIO22value = 0;// Turn on the LED by default
 var GPIO23value = 0;// Turn on the LED by default
-var GPIO24alue = 0;// Turn on the LED by default
+var GPIO24value = 0;// Turn on the LED by default
 var GPIO25value = 0;  // Turn on the LED by default
 var GPIO26value = 0;// Turn on the LED by default
 
