@@ -20,15 +20,6 @@ window.addEventListener("load", function(){ //when page loads
 });
 
 
-//Update gpio feedback when server changes LED state
-socket.on('GPIO12', function (data) {  
-  //  console.log('GPIO12 function called');
-  //  console.log(data);
-    var myJSON = JSON.stringify(data);
-  //  console.log(myJSON);
-    document.getElementById('GPIO12').checked = data;
-  //  console.log('GPIO12: '+data.toString());
-  });
   
 
 
@@ -76,6 +67,17 @@ socket.on('GPIO16', function (data) {
   document.getElementById('GPIO16').checked = data;
 //  console.log('GPIO16: '+data.toString());
 });
+
+
+//Update gpio feedback when server changes LED state
+socket.on('GPIO12', function (data) {  
+  //  console.log('GPIO12 function called');
+  //  console.log(data);
+    var myJSON = JSON.stringify(data);
+  //  console.log(myJSON);
+    document.getElementById('GPIO12').checked = data;
+  //  console.log('GPIO12: '+data.toString());
+  });
 
 
 function ReportTouchStart(e) {
