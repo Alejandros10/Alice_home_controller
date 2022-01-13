@@ -73,15 +73,37 @@ const WebPort = 80;
 
 // Start http webserver
 http.listen(WebPort, function() {  // This gets call when the web server is first started.
-	LED26.writeSync(GPIO26value); //turn LED on or off
+	
+	LED5.writeSync(GPIO5value); //turn LED on or off\
+	LED6.writeSync(GPIO6value); //turn LED on or off
+	LED7.writeSync(GPIO7value); //turn LED on or off
+	LED8.writeSync(GPIO8value); //turn LED on or off
+	LED9.writeSync(GPIO9value); //turn LED on or off
+	LED10.writeSync(GPIO10value); //turn LED on or off
+	LED11.writeSync(GPIO11value); //turn LED on or off
+	LED12.writeSync(GPIO12value); //turn LED on or off
+	LED13.writeSync(GPIO13value); //turn LED on or off
+	LED14.writeSync(GPIO14value); //turn LED on or off
+	LED15.writeSync(GPIO15value); //turn LED on or off
+
+	LED16.writeSync(GPIO16value); //turn LED on or off
+	LED17.writeSync(GPIO17value); //turn LED on or off
+	LED18.writeSync(GPIO18value); //turn LED on or off
+	LED19.writeSync(GPIO19value); //turn LED on or off
 	LED20.writeSync(GPIO20value); //turn LED on or off
 	LED21.writeSync(GPIO21value); //turn LED on or off
-	LED16.writeSync(GPIO16value); //turn LED on or off
+	LED22.writeSync(GPIO22value); //turn LED on or off
+	LED23.writeSync(GPIO23value); //turn LED on or off
+	LED24.writeSync(GPIO24value); //turn LED on or off
+	LED25.writeSync(GPIO25value); //turn LED on or off
+	LED26.writeSync(GPIO26value); //turn LED on or off
+
 	console.log('Server running on Port '+WebPort);
-	console.log('GPIO26 = '+GPIO26value);
 	console.log('GPIO20 = '+GPIO20value);
 	console.log('GPIO21 = '+GPIO21value);
 	console.log('GPIO16 = '+GPIO16value);
+	console.log('GPIO26 = '+GPIO26value);
+
 	} 
 ); 
 
@@ -96,7 +118,7 @@ function handler (req, res) {
     var extname = path.extname(filename);
     if (filename=='./') {
       console.log('retrieving default index.html file');
-      filename= './hab3.html';
+      filename= './index.html';
     }
     
     // Initial content type
