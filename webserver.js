@@ -13,21 +13,21 @@ var LED8 = new Gpio(8,'out'); //use GPIO pin 8 as output
 var LED9 = new Gpio(9,'out'); //use GPIO pin 9 as output
 var LED10 = new Gpio(10,'out'); //use GPIO pin 10 as output
 var LED11 = new Gpio(11,'out'); //use GPIO pin 11 as output
-var LED12 = new Gpio(12,'out'); //use GPIO pin 12 as output
-var LED13 = new Gpio(13,'out'); //use GPIO pin 13 as output
+var LED12 = new Gpio(12,'out'); //use GPIO pin 12 as output --
+var LED13 = new Gpio(13,'out'); //use GPIO pin 13 as output --
 var LED14 = new Gpio(14,'out'); //use GPIO pin 14 as output
 var LED15 = new Gpio(15,'out'); //use GPIO pin 15 as output
-var LED16 = new Gpio(16, 'out'); //use GPIO pin 16 as output
+var LED16 = new Gpio(16, 'out'); //use GPIO pin 16 as output --
 var LED17 = new Gpio(17,'out'); //use GPIO pin 17 as output
 var LED18 = new Gpio(18,'out'); //use GPIO pin 18 as output
-var LED19 = new Gpio(19,'out'); //use GPIO pin 19 as output
-var LED20 = new Gpio(20, 'out'); //use GPIO pin 20 as output
+var LED19 = new Gpio(19,'out'); //use GPIO pin 19 as output --
+var LED20 = new Gpio(20, 'out'); //use GPIO pin 20 as output --
 var LED21 = new Gpio(21, 'out'); //use GPIO pin 21 as output
-var LED22 = new Gpio(22,'out'); //use GPIO pin 22 as output
+var LED22 = new Gpio(22,'out'); //use GPIO pin 22 as output --
 var LED23 = new Gpio(23,'out'); //use GPIO pin 23 as output
-var LED24 = new Gpio(24,'out'); //use GPIO pin 24 as output
+var LED24 = new Gpio(24,'out'); //use GPIO pin 24 as output --
 var LED25 = new Gpio(25,'out'); //use GPIO pin 25 as output
-var LED26 = new Gpio(26, 'out'); //use GPIO pin 26 as output
+var LED26 = new Gpio(26, 'out'); //use GPIO pin 26 as output --
 
 
 var GPIO5value = 0;// Turn on the LED by default
@@ -118,7 +118,7 @@ function handler (req, res) {
     var extname = path.extname(filename);
     if (filename=='./') {
       console.log('retrieving default index.html file');
-      filename= './hab3.html';
+      filename= './index.html';
     }
     
     // Initial content type
@@ -168,6 +168,10 @@ function handler (req, res) {
 
 // Execute this when web server is terminated
 process.on('SIGINT', function () { //on ctrl+c
+
+	LED12.writeSync(0); // Turn LED off
+	LED12.unexport(); // Unexport LED GPIO to free resources
+	
   LED26.writeSync(0); // Turn LED off
   LED26.unexport(); // Unexport LED GPIO to free resources
   
@@ -188,11 +192,23 @@ process.on('SIGINT', function () { //on ctrl+c
 
 io.sockets.on('connection', function (socket) {// WebSocket Connection
     console.log('A new client has connectioned. Send LED status');
+	socket.emit('GPIO12', GPIO12value);
     socket.emit('GPIO26', GPIO26value);
     socket.emit('GPIO20', GPIO20value);
     socket.emit('GPIO21', GPIO21value);
     socket.emit('GPIO16', GPIO16value);
     
+    // this gets called whenever client presses GPIO12 toggle light button
+    socket.on('GPIO12T', function(data) { 
+		if (GPIO12value) GPIO12value = 0;
+		else GPIO12value = 1;
+		console.log('new GPIO12 value='+GPIO12value);
+		LED16.writeSync(GPIO12value); //turn LED on or off
+		console.log('Send new GPIO12 state to ALL clients');
+		io.emit('GPIO12', GPIO12value); //send button status to ALL clients 	
+		});
+	
+
     // this gets called whenever client presses GPIO26 toggle light button
     socket.on('GPIO26T', function(data) { 
 	if (GPIO26value) GPIO26value = 0;
@@ -233,7 +249,16 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 	io.emit('GPIO16', GPIO16value); //send button status to ALL clients 	
     });
 
-    
+        // this gets called whenever client presses GPIO12 momentary light button
+		socket.on('GPIO12', function(data) { 
+			GPIO12value = data;
+			if (GPIO12value != LED12.readSync()) { //only change LED if status has changed
+				LED12.writeSync(GPIO12value); //turn LED on or off
+				console.log('Send new GPIO12 state to ALL clients');
+				io.emit('GPIO12', GPIO12value); //send button status to ALL clients 
+			};	
+			});
+
     // this gets called whenever client presses GPIO26 momentary light button
     socket.on('GPIO26', function(data) { 
 	GPIO26value = data;
