@@ -208,7 +208,10 @@ function ReportMouseUp(e) {
     socket.emit("GPIO16", 0); 
     document.getElementById('GPIO16').checked = 0;
   }
- 
+  else if (e.target.id === "GPIO12M") {
+    socket.emit("GPIO12", 0); 
+    document.getElementById('GPIO12').checked = 0;
+  }
 }
 
 function TouchMove(e) {
