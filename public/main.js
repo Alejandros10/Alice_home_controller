@@ -20,6 +20,16 @@ window.addEventListener("load", function(){ //when page loads
 });
 
 
+//Update gpio feedback when server changes LED state
+socket.on('GPIO12', function (data) {  
+  //  console.log('GPIO12 function called');
+  //  console.log(data);
+    var myJSON = JSON.stringify(data);
+  //  console.log(myJSON);
+    document.getElementById('GPIO12').checked = data;
+  //  console.log('GPIO12: '+data.toString());
+  });
+  
 
 
 //Update gpio feedback when server changes LED state
@@ -85,7 +95,10 @@ function ReportTouchStart(e) {
     } else if (x === "GPIO16") {
   //    console.log("GPIO16 toggle");
       socket.emit("GPIO16T");  // send GPIO button toggle to node.js server
-    } 
+    } else if (x === "GPIO12") {
+      //    console.log("GPIO12 toggle");
+          socket.emit("GPIO12T");  // send GPIO button toggle to node.js server
+        } 
   }
 
   if (e.target.id === "GPIO26M") {
@@ -104,6 +117,11 @@ function ReportTouchStart(e) {
     socket.emit("GPIO16", 1); 
     document.getElementById('GPIO16').checked = 1;
   }
+  else if (e.target.id === "GPIO12M") {
+    //    console.log("GPIO16 pressed");
+        socket.emit("GPIO12", 1); 
+        document.getElementById('GPIO12').checked = 1;
+      }
 }
 
 function ReportTouchEnd(e) {
@@ -119,6 +137,10 @@ function ReportTouchEnd(e) {
   } else if (e.target.id === "GPIO16M") {
     socket.emit("GPIO16", 0); 
     document.getElementById('GPIO16').checked = 0;
+  }
+  else if (e.target.id === "GPIO12M") {
+    socket.emit("GPIO12", 0); 
+    document.getElementById('GPIO12').checked = 0;
   }
 }
 
@@ -141,6 +163,10 @@ function ReportMouseDown(e) {
  //     console.log("GPIO16 toggle");
       socket.emit("GPIO16T");  // send GPIO button toggle to node.js server
     } 
+    else if (x === "GPIO12") {
+      //     console.log("GPIO12 toggle");
+           socket.emit("GPIO12T");  // send GPIO button toggle to node.js server
+         } 
   }
   
   if (e.target.id === "GPIO26M") {
@@ -159,6 +185,10 @@ function ReportMouseDown(e) {
 //    console.log("GPIO16 pressed");
     socket.emit("GPIO16", 1); 
   }
+  else if (e.target.id === "GPIO12M") {
+    //    console.log("GPIO12 pressed");
+        socket.emit("GPIO12", 1); 
+      }
 }
 
 
@@ -175,6 +205,10 @@ function ReportMouseUp(e) {
   } else if (e.target.id === "GPIO16M") {
     socket.emit("GPIO16", 0); 
     document.getElementById('GPIO16').checked = 0;
+  }
+  else if (e.target.id === "GPIO12M") {
+    socket.emit("GPIO12", 0); 
+    document.getElementById('GPIO12').checked = 0;
   }
 }
 
