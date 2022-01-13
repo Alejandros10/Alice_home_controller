@@ -118,7 +118,7 @@ function handler (req, res) {
     var extname = path.extname(filename);
     if (filename=='./') {
       console.log('retrieving default index.html file');
-      filename= './index.html';
+      filename= './hab3.html';
     }
     
     // Initial content type
