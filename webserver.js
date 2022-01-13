@@ -30,11 +30,30 @@ var LED25 = new Gpio(25,'out'); //use GPIO pin 25 as output
 var LED26 = new Gpio(26, 'out'); //use GPIO pin 26 as output
 
 
-
-var GPIO26value = 0;  // Turn on the LED by default
-var GPIO20value = 0;  // Turn on the LED by default
-var GPIO21value = 0;  // Turn on the LED by default
+var GPIO5value = 0;// Turn on the LED by default
+var GPIO6value = 0;// Turn on the LED by default
+var GPIO7value = 0;// Turn on the LED by default
+var GPIO8value = 0;// Turn on the LED by default
+var GPIO9value = 0;// Turn on the LED by default
+var GPIO10value = 0;// Turn on the LED by default
+var GPIO11value = 0;// Turn on the LED by default
+var GPIO12value = 0;// Turn on the LED by default
+var GPIO13value = 0;// Turn on the LED by default
+var GPIO14value = 0;// Turn on the LED by default
+var GPIO15value = 0;// Turn on the LED by default
 var GPIO16value = 0;  // Turn on the LED by default
+var GPIO17value = 0;// Turn on the LED by default
+var GPIO18value = 0;// Turn on the LED by default
+var GPIO19value = 0;// Turn on the LED by default
+var GPIO20value = 0;// Turn on the LED by default
+var GPIO21value = 0;// Turn on the LED by default
+var GPIO22value = 0;// Turn on the LED by default
+var GPIO23value = 0;// Turn on the LED by default
+var GPIO24alue = 0;// Turn on the LED by default
+var GPIO25value = 0;  // Turn on the LED by default
+var GPIO26value = 0;// Turn on the LED by default
+
+
 
 /****** CONSTANTS******************************************************/
 
