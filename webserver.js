@@ -186,7 +186,7 @@ io.sockets.on("connection", function (socket) {
   console.log("A new client has connectioned. Send LED status");
   socket.emit("GPIO12", GPIO12value);
   socket.emit("GPIO16", GPIO16value);
-  socket.emit("GPIO19", GPIO16value);
+  socket.emit("GPIO19", GPIO19value);
   socket.emit("GPIO20", GPIO20value);
   socket.emit("GPIO21", GPIO21value);
   socket.emit("GPIO24", GPIO21value);
