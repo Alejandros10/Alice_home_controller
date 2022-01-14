@@ -189,7 +189,7 @@ io.sockets.on("connection", function (socket) {
   socket.emit("GPIO19", GPIO19value);
   socket.emit("GPIO20", GPIO20value);
   socket.emit("GPIO21", GPIO21value);
-  socket.emit("GPIO24", GPIO21value);
+  socket.emit("GPIO24", GPIO24value);
   socket.emit("GPIO26", GPIO26value);
 
 
@@ -220,7 +220,7 @@ io.sockets.on("connection", function (socket) {
 		console.log("new GPIO19 value=" + GPIO19value);
 		LED19.writeSync(GPIO19value); //turn LED on or off
 		console.log("Send new GPIO19 state to ALL clients");
-		io.emit("GPIO16", GPIO19value); //send button status to ALL clients
+		io.emit("GPIO19", GPIO19value); //send button status to ALL clients
 	  });
 
 // this gets called whenever client presses GPIO20 toggle light button
