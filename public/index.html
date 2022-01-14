@@ -5,18 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Steve's Projects" />
-    <title>ALICE - CONTROL HOME</title>
+    <title>Alice</title>
     <link rel="icon" type="image/png" href="../images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="../css/styles.css" />
 </head>
 
 <body oncopy="return false" oncut="return false" onpaste="return false">
     <div class="noselect">
-        <div style="background-color: aquamarine;" class="keypadContainer">
-            <h1 class="TextCenter">ALICE </h1>
+        <div class="keypadContainer">
+            <h1 class="TextCenter">ALICE</h1>
             <h3 class="TextCenter">Exteriores</h3>
+
             <div hidden class="GpioContainer">
-                <strong>GPIO26</strong>
+                <strong>Estudio</strong>
+                <br />
+                <label class="switch">
+            <input type="checkbox" id="GPIO21" disabled />
+            <span class="slider round"></span>
+          </label>
+                <br />
+                <button id="GPIO21M"></button>
+                <br />
+            </div>
+
+            <div hidden class="GpioContainer">
+                <strong>Calefaccion</strong>
                 <br />
                 <label class="switch">
             <input type="checkbox" id="GPIO26" disabled />
@@ -28,7 +41,7 @@
             </div>
 
             <div hidden class="GpioContainer">
-                <strong>GPIO20</strong>
+                <strong>Centro</strong>
                 <br />
                 <label class="switch">
             <input type="checkbox" id="GPIO20" disabled />
@@ -40,19 +53,7 @@
             </div>
 
             <div hidden class="GpioContainer">
-                <strong>GPIO21</strong>
-                <br />
-                <label class="switch">
-            <input type="checkbox" id="GPIO21" disabled />
-            <span class="slider round"></span>
-          </label>
-                <br />
-                <button id="GPIO21M"></button>
-                <br />
-            </div>
-
-            <div class="GpioContainer">
-                <strong>Corredores</strong>
+                <strong>Noche 1</strong>
                 <br />
                 <label class="switch">
             <input type="checkbox" id="GPIO16" disabled />
@@ -60,6 +61,42 @@
           </label>
                 <br />
                 <button id="GPIO16M"></button>
+                <br />
+            </div>
+
+            <div hidden class="GpioContainer">
+                <strong>Noche 2</strong>
+                <br />
+                <label class="switch">
+            <input type="checkbox" id="GPIO12" disabled />
+            <span class="slider round"></span>
+          </label>
+                <br />
+                <button id="GPIO12M"></button>
+                <br />
+            </div>
+
+            <div class="GpioContainer">
+                <strong>Reflectores</strong>
+                <br />
+                <label class="switch">
+            <input type="checkbox" id="GPIO19" disabled />
+            <span class="slider round"></span>
+          </label>
+                <br />
+                <button id="GPIO19M"></button>
+                <br />
+            </div>
+
+            <div class="GpioContainer">
+                <strong>Corredores</strong>
+                <br />
+                <label class="switch">
+            <input type="checkbox" id="GPIO24" disabled />
+            <span class="slider round"></span>
+          </label>
+                <br />
+                <button id="GPIO24M"></button>
                 <br />
             </div>
         </div>
