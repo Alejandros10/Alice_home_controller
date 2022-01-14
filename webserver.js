@@ -213,6 +213,16 @@ io.sockets.on("connection", function (socket) {
     io.emit("GPIO16", GPIO16value); //send button status to ALL clients
   });
 
+     // this gets called whenever client presses GPIO16 toggle light button
+	 socket.on("GPIO19T", function (data) {
+		if (GPIO19value) GPIO19value = 0;
+		else GPIO19value = 1;
+		console.log("new GPIO19 value=" + GPIO19value);
+		LED19.writeSync(GPIO19value); //turn LED on or off
+		console.log("Send new GPIO19 state to ALL clients");
+		io.emit("GPIO16", GPIO19value); //send button status to ALL clients
+	  });
+
 // this gets called whenever client presses GPIO20 toggle light button
 socket.on("GPIO20T", function (data) {
     if (GPIO20value) GPIO20value = 0;
@@ -232,6 +242,16 @@ socket.on("GPIO20T", function (data) {
     console.log("Send new GPIO21 state to ALL clients");
     io.emit("GPIO21", GPIO21value); //send button status to ALL clients
   });
+
+    // this gets called whenever client presses GPIO24 toggle light button
+	socket.on("GPIO24T", function (data) {
+		if (GPIO24value) GPIO24value = 0;
+		else GPIO24value = 1;
+		console.log("new GPIO24 value=" + GPIO24value);
+		LED24.writeSync(GPIO24value); //turn LED on or off
+		console.log("Send new GPIO24 state to ALL clients");
+		io.emit("GPIO24", GPIO24value); //send button status to ALL clients
+	  });
 
 
   // this gets called whenever client presses GPIO26 toggle light button
@@ -269,6 +289,17 @@ socket.on("GPIO20T", function (data) {
     }
   });
 
+    // this gets called whenever client presses GPIO19 momentary light button
+	socket.on("GPIO19", function (data) {
+		GPIO19value = data;
+		if (GPIO19value != LED19.readSync()) {
+		  //only change LED if status has changed
+		  LED19.writeSync(GPIO19value); //turn LED on or off
+		  console.log("Send new GPIO19 state to ALL clients");
+		  io.emit("GPIO19", GPIO19value); //send button status to ALL clients
+		}
+	  });
+
    // this gets called whenever client presses GPIO20 momentary light button
    socket.on("GPIO20", function (data) {
     GPIO20value = data;
@@ -290,6 +321,17 @@ socket.on("GPIO20T", function (data) {
       io.emit("GPIO21", GPIO21value); //send button status to ALL clients e
     }
   });
+
+    // this gets called whenever client presses GPIO24 momentary light button
+	socket.on("GPIO24", function (data) {
+		GPIO24value = data;
+		if (GPIO24value != LED24.readSync()) {
+		  //only change LED if status has changed
+		  LED24.writeSync(GPIO24value); //turn LED on or off
+		  console.log("Send new GPIO24 state to ALL clients");
+		  io.emit("GPIO24", GPIO24value); //send button status to ALL clients e
+		}
+	  });
 
 
   // this gets called whenever client presses GPIO26 momentary light button
