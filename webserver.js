@@ -68,6 +68,24 @@ const WebPort = 80;
 http.listen(WebPort, function () {
   // This gets call when the web server is first started.
 
+
+  const localtunnel = require('localtunnel');
+
+(async () => {
+  const tunnel = await localtunnel({ port: WebPort });
+
+  // the assigned public url for your tunnel
+  // i.e. https://abcdefgjhij.localtunnel.me
+  tunnel.url;
+
+  console.log(tunnel.url);
+
+  tunnel.on('close', () => {
+    // tunnels are closed
+  });
+})();
+
+
   LED5.writeSync(GPIO5value); //turn LED on or off\
   LED6.writeSync(GPIO6value); //turn LED on or off
   LED7.writeSync(GPIO7value); //turn LED on or off
