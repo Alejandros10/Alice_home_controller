@@ -72,7 +72,7 @@ http.listen(WebPort, function () {
   const localtunnel = require('localtunnel');
 
 (async () => {
-  const tunnel = await localtunnel({ port: 3000 });
+  const tunnel = await localtunnel({ port: WebPort });
 
   // the assigned public url for your tunnel
   // i.e. https://abcdefgjhij.localtunnel.me
