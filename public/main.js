@@ -141,7 +141,7 @@ function ReportTouchStart(e) {
     }
     else if (x === "GPIO7") {
       //    console.log("GPIO7 toggle");
-      socket.emit("GPIO7"); // send GPIO button toggle to node.js server
+      socket.emit("GPIO7T"); // send GPIO button toggle to node.js server
     }
   }
 
@@ -171,7 +171,6 @@ function ReportTouchStart(e) {
     document.getElementById("GPIO13").checked = 1;
   }
   
-
   else if (e.target.id === "GPIO19M") {
     //    console.log("GPIO19 pressed");
     socket.emit("GPIO19", 1);
@@ -207,21 +206,16 @@ function ReportTouchEnd(e) {
   } else if (e.target.id === "GPIO12M") {
     socket.emit("GPIO12", 0);
     document.getElementById("GPIO12").checked = 0;
-  }
-  else if (e.target.id === "GPIO19M") {
+  } else if (e.target.id === "GPIO19M") {
     socket.emit("GPIO19", 0);
     document.getElementById("GPIO19").checked = 0;
-  }
-  else if (e.target.id === "GPIO24M") {
+  } else if (e.target.id === "GPIO24M") {
     socket.emit("GPIO24", 0);
     document.getElementById("GPIO24").checked = 0;
-  }
-
-  else if (e.target.id === "GPIO13M") {
+  } else if (e.target.id === "GPIO13M") {
     socket.emit("GPIO13", 0);
     document.getElementById("GPIO13").checked = 0;
-  }
-  else if (e.target.id === "GPIO7M") {
+  } else if (e.target.id === "GPIO7M") {
     socket.emit("GPIO7", 0);
     document.getElementById("GPIO7").checked = 0;
   }
@@ -247,21 +241,16 @@ function ReportMouseDown(e) {
     } else if (x === "GPIO12") {
       //     console.log("GPIO12 toggle");
       socket.emit("GPIO12T"); // send GPIO button toggle to node.js server
-    }
-    
-    else if (x === "GPIO19") {
+    } else if (x === "GPIO19") {
       //     console.log("GPIO19 toggle");
       socket.emit("GPIO19T"); // send GPIO button toggle to node.js server
-    }
-    else if (x === "GPIO24") {
+    } else if (x === "GPIO24") {
       //     console.log("GPIO24 toggle");
       socket.emit("GPIO24T"); // send GPIO button toggle to node.js server
-    }
-    else if (x === "GPIO13") {
+    } else if (x === "GPIO13") {
       //     console.log("GPIO13 toggle");
       socket.emit("GPIO13T"); // send GPIO button toggle to node.js server
-    }
-    else if (x === "GPIO7") {
+    } else if (x === "GPIO7") {
       //     console.log("GPIO7 toggle");
       socket.emit("GPIO7T"); // send GPIO button toggle to node.js server
     }
@@ -285,22 +274,16 @@ function ReportMouseDown(e) {
   } else if (e.target.id === "GPIO12M") {
     //    console.log("GPIO12 pressed");
     socket.emit("GPIO12", 1);
-  }
-
-  else if (e.target.id === "GPIO13M") {
+  } else if (e.target.id === "GPIO13M") {
     //    console.log("GPIO13 pressed");
     socket.emit("GPIO13", 1);
-  }
-
-  else if (e.target.id === "GPIO19M") {
+  } else if (e.target.id === "GPIO19M") {
     //    console.log("GPIO19 pressed");
     socket.emit("GPIO19", 1);
-  }
-  else if (e.target.id === "GPIO24M") {
+  } else if (e.target.id === "GPIO24M") {
     //    console.log("GPIO24 pressed");
     socket.emit("GPIO24", 1);
-  }
-  else if (e.target.id === "GPIO7M") {
+  } else if (e.target.id === "GPIO7M") {
     //    console.log("GPIO7 pressed");
     socket.emit("GPIO7", 1);
   }
@@ -322,23 +305,16 @@ function ReportMouseUp(e) {
   } else if (e.target.id === "GPIO12M") {
     socket.emit("GPIO12", 0);
     document.getElementById("GPIO12").checked = 0;
-  }
-
-  else if (e.target.id === "GPIO13M") {
+  } else if (e.target.id === "GPIO13M") {
     socket.emit("GPIO13", 0);
     document.getElementById("GPIO13").checked = 0;
-  }
-
-
-  else if (e.target.id === "GPIO19M") {
+  } else if (e.target.id === "GPIO19M") {
     socket.emit("GPIO19", 0);
     document.getElementById("GPIO19").checked = 0;
-  }
-  else if (e.target.id === "GPIO24M") {
+  } else if (e.target.id === "GPIO24M") {
     socket.emit("GPIO24", 0);
     document.getElementById("GPIO24").checked = 0;
-  }
-  else if (e.target.id === "GPIO7M") {
+  } else if (e.target.id === "GPIO7M") {
     socket.emit("GPIO7", 0);
     document.getElementById("GPIO7").checked = 0;
   }
