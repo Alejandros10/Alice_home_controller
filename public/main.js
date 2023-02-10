@@ -16,16 +16,6 @@ window.addEventListener("load", function () {
 });
 
 //Update gpio feedback when server changes LED state
-socket.on("GPIO7", function (data) {
-  //  console.log('GPIO7 function called');
-  //  console.log(data);
-  var myJSON = JSON.stringify(data);
-  //  console.log(myJSON);
-  document.getElementById("GPIO7").checked = data;
-  //  console.log('GPIO7: '+data.toString());
-});
-
-//Update gpio feedback when server changes LED state
 socket.on("GPIO12", function (data) {
   //  console.log('GPIO12 function called');
   //  console.log(data);
@@ -33,6 +23,16 @@ socket.on("GPIO12", function (data) {
   //  console.log(myJSON);
   document.getElementById("GPIO12").checked = data;
   //  console.log('GPIO12: '+data.toString());
+});
+
+//Update gpio feedback when server changes LED state
+socket.on("GPIO7", function (data) {
+  console.log('GPIO7 function called');
+  console.log(data);
+  var myJSON = JSON.stringify(data);
+  console.log(myJSON);
+  document.getElementById("GPIO7").checked = data;
+  console.log('GPIO7: '+data.toString());
 });
 
 //Update gpio feedback when server changes LED state
@@ -140,7 +140,7 @@ function ReportTouchStart(e) {
       socket.emit("GPIO13T"); // send GPIO button toggle to node.js server
     }
     else if (x === "GPIO7") {
-      //    console.log("GPIO7 toggle");
+      console.log("GPIO7 toggle");
       socket.emit("GPIO7T"); // send GPIO button toggle to node.js server
     }
   }
@@ -181,7 +181,7 @@ function ReportTouchStart(e) {
     document.getElementById("GPIO24").checked = 1;
   }
   else if (e.target.id === "GPIO7M") {
-    //    console.log("GPIO24 pressed");
+     console.log("GPIO7 pressed");
     socket.emit("GPIO7", 1);
     document.getElementById("GPIO7").checked = 1;
   }

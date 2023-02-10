@@ -31,7 +31,7 @@ var LED26 = new Gpio(26, "out"); //use GPIO pin 26 as output
 
 var GPIO5value = 0; // Turn on the LED by default
 var GPIO6value = 0; // Turn on the LED by default
-var GPIO7value = 1; // Turn on the LED by default
+var GPIO7value = 0; // Turn on the LED by default
 var GPIO8value = 0; // Turn on the LED by default
 var GPIO9value = 0; // Turn on the LED by default
 var GPIO10value = 0; // Turn on the LED by default
@@ -229,7 +229,7 @@ io.sockets.on("connection", function (socket) {
     if (GPIO7value) GPIO7value = 0;
     else GPIO7value = 1;
     console.log("new GPIO7 value=" + GPIO7value);
-    LED12.writeSync(GPIO7value); //turn LED on or off
+    LED7.writeSync(GPIO7value); //turn LED on or off
     console.log("Send new GPIO7 state to ALL clients");
     io.emit("GPIO7", GPIO7value); //send button status to ALL clients
   });
@@ -329,7 +329,7 @@ io.sockets.on("connection", function (socket) {
     GPIO7value = data;
     if (GPIO7value != LED7.readSync()) {
       //only change LED if status has changed
-      LED12.writeSync(GGPIO7value); //turn LED on or off
+      LED7.writeSync(GPIO7value); //turn LED on or off
       console.log("Send new GPIO7 state to ALL clients");
       io.emit("GPIO7", GPIO7value); //send button status to ALL clients
     }
