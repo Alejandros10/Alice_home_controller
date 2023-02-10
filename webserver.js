@@ -115,7 +115,7 @@ http.listen(WebPort, function () {
   console.log("GPIO21 = " + GPIO21value);
   console.log("GPIO16 = " + GPIO16value);
   console.log("GPIO26 = " + GPIO26value);
-  console.log("GPIO26 = " + GPIO7value);
+  console.log("GPIO07 = " + GPIO7value);
 });
 
 // function handler is called whenever a client makes an http request to the server

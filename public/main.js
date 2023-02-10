@@ -16,6 +16,16 @@ window.addEventListener("load", function () {
 });
 
 //Update gpio feedback when server changes LED state
+socket.on("GPIO7", function (data) {
+  //  console.log('GPIO7 function called');
+  //  console.log(data);
+  var myJSON = JSON.stringify(data);
+  //  console.log(myJSON);
+  document.getElementById("GPIO7").checked = data;
+  //  console.log('GPIO7: '+data.toString());
+});
+
+//Update gpio feedback when server changes LED state
 socket.on("GPIO12", function (data) {
   //  console.log('GPIO12 function called');
   //  console.log(data);
@@ -129,6 +139,10 @@ function ReportTouchStart(e) {
       //    console.log("GPIO13 toggle");
       socket.emit("GPIO13T"); // send GPIO button toggle to node.js server
     }
+    else if (x === "GPIO7") {
+      //    console.log("GPIO7 toggle");
+      socket.emit("GPIO7"); // send GPIO button toggle to node.js server
+    }
   }
 
   if (e.target.id === "GPIO26M") {
@@ -169,6 +183,12 @@ function ReportTouchStart(e) {
     socket.emit("GPIO24", 1);
     document.getElementById("GPIO24").checked = 1;
   }
+  
+  else if (e.target.id === "GPIO7M") {
+    //    console.log("GPIO24 pressed");
+    socket.emit("GPIO7", 1);
+    document.getElementById("GPIO7").checked = 1;
+  }
 }
 
 function ReportTouchEnd(e) {
@@ -200,6 +220,10 @@ function ReportTouchEnd(e) {
   else if (e.target.id === "GPIO13M") {
     socket.emit("GPIO13", 0);
     document.getElementById("GPIO13").checked = 0;
+  }
+  else if (e.target.id === "GPIO7M") {
+    socket.emit("GPIO7", 0);
+    document.getElementById("GPIO7").checked = 0;
   }
 }
 
@@ -237,6 +261,10 @@ function ReportMouseDown(e) {
       //     console.log("GPIO13 toggle");
       socket.emit("GPIO13T"); // send GPIO button toggle to node.js server
     }
+    else if (x === "GPIO7") {
+      //     console.log("GPIO7 toggle");
+      socket.emit("GPIO7T"); // send GPIO button toggle to node.js server
+    }
   }
 
   if (e.target.id === "GPIO26M") {
@@ -272,6 +300,10 @@ function ReportMouseDown(e) {
     //    console.log("GPIO24 pressed");
     socket.emit("GPIO24", 1);
   }
+  else if (e.target.id === "GPIO7M") {
+    //    console.log("GPIO7 pressed");
+    socket.emit("GPIO7", 1);
+  }
 }
 
 function ReportMouseUp(e) {
@@ -305,6 +337,10 @@ function ReportMouseUp(e) {
   else if (e.target.id === "GPIO24M") {
     socket.emit("GPIO24", 0);
     document.getElementById("GPIO24").checked = 0;
+  }
+  else if (e.target.id === "GPIO7M") {
+    socket.emit("GPIO7", 0);
+    document.getElementById("GPIO7").checked = 0;
   }
 }
 
