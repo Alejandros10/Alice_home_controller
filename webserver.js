@@ -225,7 +225,7 @@ io.sockets.on("connection", function (socket) {
   socket.emit("GPIO26", GPIO26value);
 
   // this gets called whenever client presses GPIO12 toggle light button
-  socket.on("GPIO7", function (data) {
+  socket.on("GPIO7T", function (data) {
     if (GPIO7value) GPIO7value = 0;
     else GPIO7value = 1;
     console.log("new GPIO7 value=" + GPIO7value);
@@ -323,6 +323,17 @@ io.sockets.on("connection", function (socket) {
     console.log("Send new GPIO26 state to ALL clients");
     io.emit("GPIO26", GPIO26value); //send button status to ALL clients
   });
+
+    // this gets called whenever client presses GPIO7 momentary light button
+    socket.on("GPIO7", function (data) {
+      GPIO7value = data;
+      if (GPIO7value != LED7.readSync()) {
+        //only change LED if status has changed
+        LED12.writeSync(GGPIO7value); //turn LED on or off
+        console.log("Send new GPIO7 state to ALL clients");
+        io.emit("GPIO7", GPIO7value); //send button status to ALL clients
+      }
+    });
 
   // this gets called whenever client presses GPIO12 momentary light button
   socket.on("GPIO12", function (data) {
