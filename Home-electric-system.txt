@@ -1,0 +1,14 @@
+- TC.Analogo A -> Toma corriente analogo -> Sala - Estudio
+- TC.Analogo B -> Toma corriente analogo -> Bano y Banera
+
+- IL.Digital C -> Iluminacion digital Interior Casa
+- TC.Digital D -> Toma corriente digital -> Sala - Estudio 
+
+- E
+- F
+
+- IL.Analogo G -> Iluminacion digital exteriores -> corredores, reflectores, muro, virgen  
+- H
+- I
+- J
+- K
