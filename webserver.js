@@ -31,7 +31,7 @@ var LED26 = new Gpio(26, "out"); //use GPIO pin 26 as output
 
 var GPIO5value = 0; // Turn on the LED by default
 var GPIO6value = 0; // Turn on the LED by default
-var GPIO7value = 0; // Turn on the LED by default
+var GPIO7value = 1; // Turn on the LED by default
 var GPIO8value = 0; // Turn on the LED by default
 var GPIO9value = 0; // Turn on the LED by default
 var GPIO10value = 0; // Turn on the LED by default
@@ -324,16 +324,16 @@ io.sockets.on("connection", function (socket) {
     io.emit("GPIO26", GPIO26value); //send button status to ALL clients
   });
 
-    // this gets called whenever client presses GPIO7 momentary light button
-    socket.on("GPIO7", function (data) {
-      GPIO7value = data;
-      if (GPIO7value != LED7.readSync()) {
-        //only change LED if status has changed
-        LED12.writeSync(GGPIO7value); //turn LED on or off
-        console.log("Send new GPIO7 state to ALL clients");
-        io.emit("GPIO7", GPIO7value); //send button status to ALL clients
-      }
-    });
+  // this gets called whenever client presses GPIO7 momentary light button
+  socket.on("GPIO7", function (data) {
+    GPIO7value = data;
+    if (GPIO7value != LED7.readSync()) {
+      //only change LED if status has changed
+      LED12.writeSync(GGPIO7value); //turn LED on or off
+      console.log("Send new GPIO7 state to ALL clients");
+      io.emit("GPIO7", GPIO7value); //send button status to ALL clients
+    }
+  });
 
   // this gets called whenever client presses GPIO12 momentary light button
   socket.on("GPIO12", function (data) {

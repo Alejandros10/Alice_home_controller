@@ -170,19 +170,16 @@ function ReportTouchStart(e) {
     socket.emit("GPIO13", 1);
     document.getElementById("GPIO13").checked = 1;
   }
-  
   else if (e.target.id === "GPIO19M") {
     //    console.log("GPIO19 pressed");
     socket.emit("GPIO19", 1);
     document.getElementById("GPIO19").checked = 1;
   }
-
   else if (e.target.id === "GPIO24M") {
     //    console.log("GPIO24 pressed");
     socket.emit("GPIO24", 1);
     document.getElementById("GPIO24").checked = 1;
   }
-  
   else if (e.target.id === "GPIO7M") {
     //    console.log("GPIO24 pressed");
     socket.emit("GPIO7", 1);
