@@ -85,6 +85,8 @@ http.listen(WebPort, function () {
 
 /*   Tunnel(WebPort); */
 
+  console.log(new Date().getHours())
+
   LED0.writeSync(GPIO0value); //turn LED on or off
   LED1.writeSync(GPIO1value); //turn LED on or off
   LED2.writeSync(GPIO2value); //turn LED on or off
