@@ -104,6 +104,7 @@ socket.on("GPIO12", function (data) {
   console.log('gpio12',data)
   const time = new Date();
   const hour = time.getHours()
+  console.log(hour);
   hour >= 18 && hour <= 6 ? console.log('en el rango') : console.log('fuera del rango');
 });
 
