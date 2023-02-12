@@ -81,11 +81,10 @@ const WebPort = 80;
 
 // Start http webserver
 http.listen(WebPort, function () {
+  
   // This gets call when the web server is first started.
-
-/*   Tunnel(WebPort); */
-
-  console.log(new Date().getHours())
+  
+  /*   Tunnel(WebPort); */
 
   LED0.writeSync(GPIO0value); //turn LED on or off
   LED1.writeSync(GPIO1value); //turn LED on or off
@@ -115,7 +114,9 @@ http.listen(WebPort, function () {
   LED25.writeSync(GPIO25value); //turn LED on or off
   LED26.writeSync(GPIO26value); //turn LED on or off
 
-  console.log("Server running on Port " + WebPort);
+  const time = new Date();
+  console.log(time.getHours());
+  if(time.getHours() < 24) LED13.writeSync(1);
 });
 
 // function handler is called whenever a client makes an http request to the server
