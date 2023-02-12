@@ -2,7 +2,15 @@
 
 var socket = io(); //load socket.io-client and connect to the host that serves the page
 window.addEventListener("load", function () {
+
+  const time = new Date();
+  const day = time.getDay();
+  const hour = time.getHours() + 1;
+
   //when page loads
+  console.log(day);
+  console.log(hour);
+  
   if (isMobile.any()) {
     //    alert('Mobile');
     document.addEventListener("touchstart", ReportTouchStart, false);
@@ -102,9 +110,8 @@ socket.on("GPIO12", function (data) {
 //Update gpio feedback when server changes LED state
 socket.on("GPIO12", function (data) {
   const time = new Date();
-  const day = time.getDay();
   const hour = time.getHours() + 1;
-  console.log(hour);
+  console.log('desde dentro',hour);
 });
 
 //Update gpio feedback when server changes LED state
