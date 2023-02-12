@@ -1,10 +1,13 @@
 //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 token 25/01/2023
+import Tunnel from './tunnel';
+
 var http = require("http").createServer(handler); //require http server, and create server with function handler()
 var fs = require("fs"); //require filesystem module
 var url = require("url");
 var path = require("path");
 var io = require("socket.io", "net")(http); //require socket.io module and pass the http object (server)
 var Gpio = require("onoff").Gpio; //include onoff to interact with the GPIO
+
 
 var LED0 = new Gpio(0, "out"); //use GPIO pin 0 as output
 var LED1 = new Gpio(1, "out"); //use GPIO pin 1 as output
@@ -80,23 +83,7 @@ const WebPort = 80;
 http.listen(WebPort, function () {
   // This gets call when the web server is first started.
 
-
-  const localtunnel = require('localtunnel');
-
-  (async () => {
-    const tunnel = await localtunnel({ port: WebPort });
-
-    // the assigned public url for your tunnel
-    // i.e. https://abcdefgjhij.localtunnel.me
-    tunnel.url;
-
-    console.log(tunnel.url);
-
-    tunnel.on('close', () => {
-      // tunnels are closed
-    });
-  })();
-
+  Tunnel(WebPort);
 
   LED0.writeSync(GPIO0value); //turn LED on or off
   LED1.writeSync(GPIO1value); //turn LED on or off
