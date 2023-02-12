@@ -422,23 +422,55 @@ function ReportMouseDown(e) {
     // Now we know that x is defined, we are good to go.
     if (x === "GPIO26") {
       socket.emit("GPIO26T"); // send GPIO button toggle to node.js server
-    } else if (x === "GPIO20") {
-      socket.emit("GPIO20T"); // send GPIO button toggle to node.js server
-    } else if (x === "GPIO21") {
-      socket.emit("GPIO21T"); // send GPIO button toggle to node.js server
-    } else if (x === "GPIO16") {
-      socket.emit("GPIO16T"); // send GPIO button toggle to node.js server
-    } else if (x === "GPIO12") {
-      socket.emit("GPIO12T"); // send GPIO button toggle to node.js server
-    } else if (x === "GPIO19") {
-      socket.emit("GPIO19T"); // send GPIO button toggle to node.js server
+    } else if (x === "GPIO25") {
+      socket.emit("GPIO25T"); // send GPIO button toggle to node.js server
     } else if (x === "GPIO24") {
       socket.emit("GPIO24T"); // send GPIO button toggle to node.js server
+    } else if (x === "GPIO23") {
+      socket.emit("GPIO23T"); // send GPIO button toggle to node.js server
+    } else if (x === "GPIO22") {
+      socket.emit("GPIO22T"); // send GPIO button toggle to node.js server
+    } else if (x === "GPIO21") {
+      socket.emit("GPIO21T"); // send GPIO button toggle to node.js server
+    } else if (x === "GPIO20") {
+      socket.emit("GPIO20T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO19") {
+      socket.emit("GPIO19T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO18") {
+      socket.emit("GPIO18T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO17") {
+      socket.emit("GPIO17T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO16") {
+      socket.emit("GPIO16T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO15") {
+      socket.emit("GPIO15T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO14") {
+      socket.emit("GPIO14T"); // send GPIO button toggle to node.js server
     } else if (x === "GPIO13") {
       socket.emit("GPIO13T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO12") {
+      socket.emit("GPIO12T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO11") {
+      socket.emit("GPIO11T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO10") {
+      socket.emit("GPIO10T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO9") {
+      socket.emit("GPIO9T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO8") {
+      socket.emit("GPIO8T"); // send GPIO button toggle to node.js server
     } else if (x === "GPIO7") {
       socket.emit("GPIO7T"); // send GPIO button toggle to node.js server
-    } else if (x === "GPIO1") {
+    }else if (x === "GPIO6") {
+      socket.emit("GPIO6T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO5") {
+      socket.emit("GPIO5T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO4") {
+      socket.emit("GPIO4T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO3") {
+      socket.emit("GPIO3T"); // send GPIO button toggle to node.js server
+    } else if (x === "GPIO2") {
+      socket.emit("GPIO2T"); // send GPIO button toggle to node.js server
+    }else if (x === "GPIO1") {
       socket.emit("GPIO1T"); // send GPIO button toggle to node.js server
     } else if (x === "GPIO0") {
       socket.emit("GPIO0T"); // send GPIO button toggle to node.js server
