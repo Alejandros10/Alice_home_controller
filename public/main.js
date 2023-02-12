@@ -102,7 +102,8 @@ socket.on("GPIO12", function (data) {
 //Update gpio feedback when server changes LED state
 socket.on("GPIO12", function (data) {
   const time = new Date();
-  const hour = time.getHours().toString();
+  const day = time.getDay();
+  const hour = time.getHours() + 1;
   console.log(hour);
 });
 
