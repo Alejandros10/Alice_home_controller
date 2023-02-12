@@ -103,7 +103,8 @@ socket.on("GPIO12", function (data) {
 socket.on("GPIO12", function (data) {
   console.log('gpio12',data)
   const time = new Date();
-  time.getHours() >= 18 && time.getHours() <= 6 ? console.log('en el rango') : console.log('fuera del rango');
+  const hour = time.getHours()
+  hour >= 18 && hour <= 6 ? console.log('en el rango') : console.log('fuera del rango');
 });
 
 //Update gpio feedback when server changes LED state
