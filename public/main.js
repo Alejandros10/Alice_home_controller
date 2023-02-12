@@ -100,6 +100,12 @@ socket.on("GPIO12", function (data) {
 });
 
 //Update gpio feedback when server changes LED state
+socket.on("GPIO12", function (data) {
+  const time = new Date();
+  console.log(time.getTime);
+});
+
+//Update gpio feedback when server changes LED state
 socket.on("GPIO13", function (data) {
   var myJSON = JSON.stringify(data);
   document.getElementById("GPIO13").checked = data;
