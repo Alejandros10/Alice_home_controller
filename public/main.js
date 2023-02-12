@@ -492,7 +492,7 @@ function ReportMouseDown(e) {
     document.getElementById("GPIO11").checked = 1;
   } else if (e.target.id === "GPIO10M") {
     socket.emit("GPIO10", 1);
-    document.getElementById("GPIO110").checked = 1;
+    document.getElementById("GPIO10").checked = 1;
   }  else if (e.target.id === "GPIO9M") {
     socket.emit("GPIO9", 1);
     document.getElementById("GPIO9").checked = 1;
