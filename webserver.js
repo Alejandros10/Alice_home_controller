@@ -1,5 +1,5 @@
 //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 token 25/01/2023
-import Tunnel from './tunnel';
+/* import Tunnel from './tunnel'; */
 
 var http = require("http").createServer(handler); //require http server, and create server with function handler()
 var fs = require("fs"); //require filesystem module
@@ -83,7 +83,7 @@ const WebPort = 80;
 http.listen(WebPort, function () {
   // This gets call when the web server is first started.
 
-  Tunnel(WebPort);
+/*   Tunnel(WebPort); */
 
   LED0.writeSync(GPIO0value); //turn LED on or off
   LED1.writeSync(GPIO1value); //turn LED on or off
