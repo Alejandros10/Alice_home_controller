@@ -116,7 +116,7 @@ http.listen(WebPort, function () {
 
   const time = new Date();
   console.log(time.getHours());
-  if(time.getHours() < 24) LED13.writeSync(1);
+  time.getHours() >= 18 && time.getHours() < 6 ? LED12.writeSync(1) : LED12.writeSync(0)
 });
 
 // function handler is called whenever a client makes an http request to the server
