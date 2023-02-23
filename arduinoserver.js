@@ -2,7 +2,7 @@ const express = require('express');
 const SerialPort = require('serialport');
 
 // Configuración del puerto serie
-const port = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
+const port = new SerialPort('/dev/ttyACM0', { baudRate: /dev/ttyACM0 });
 
 // Creación del servidor Express
 const app = express();
