@@ -114,10 +114,7 @@ http.listen(WebPort, function () {
   LED25.writeSync(GPIO25value); //turn LED on or off
   LED26.writeSync(GPIO26value); //turn LED on or off
 
-  const time = new Date();
-  console.log(time.getHours());
-  time.getHours() >= 18 && time.getHours() < 6 ? LED12.writeSync(1) : LED12.writeSync(0);
-  time.getHours() > 18 ? LED12.writeSync(1) : LED12.writeSync(0);
+
 });
 
 // function handler is called whenever a client makes an http request to the server
@@ -170,6 +167,12 @@ function handler(req, res) {
       return res.end(content, "utf8");
     }
   });
+
+  const time = new Date();
+  console.log(time.getHours());
+  time.getHours() >= 18 && time.getHours() < 6 ? LED12.writeSync(1) : LED12.writeSync(0);
+  time.getHours() > 18 ? LED12.writeSync(1) : LED12.writeSync(0);
+
 }
 
 // Execute this when web server is terminated
