@@ -16,6 +16,15 @@
             <h1 class="TextCenter">ALICE</h1>
             <h3 class="TextCenter">Habitacion 3</h3>
 
+            <div class="topnav" id="myTopnav">
+                <a href="index.html" >Exteriores</a>
+                <a href="hab3.html" class="active">Habitacion 3</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        
+
             <div hidden class="GpioContainer">
                 <strong>Corredores</strong>
                 <br />
@@ -344,9 +353,23 @@
     </div>
 
     <!-- include socket.io client side script -->
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+        </script>
+        
     <script src="/socket.io/socket.io.js"></script>
 
     <script src="main.js"></script>
+
+
 </body>
 
 </html>
