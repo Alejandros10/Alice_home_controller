@@ -168,9 +168,6 @@ function handler(req, res) {
     }
   });
 
-  const time = new Date();
-  time.getHours() > 18 ? LED12.writeSync(1) : LED12.writeSync(0);
-
 }
 
 // Execute this when web server is terminated
