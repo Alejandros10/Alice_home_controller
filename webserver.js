@@ -80,7 +80,7 @@ const WebPort = 80;
 /*************** Web Browser Communication ****************************/
 
 // Start http webserver
-http.listen(WebPort, function () {
+http.listen(WebPort,'0.0.0.0', function () {
   
   // This gets call when the web server is first started.
   
